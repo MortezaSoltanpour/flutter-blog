@@ -1,3 +1,4 @@
+import 'package:blog/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -109,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Assets.images.logo.image(),
           ],
         ),
       ),
