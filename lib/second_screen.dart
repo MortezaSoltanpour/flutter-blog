@@ -1,34 +1,30 @@
 import 'package:blog/gen/assets.gen.dart';
-import 'package:blog/second_screen.dart';
 import 'package:blog/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class SecondScreen extends StatefulWidget {
+  const SecondScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SecondScreen> createState() => _SecondScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
+          backgroundColor: Colors.amber,
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SecondScreen()),
-                    );
+                    Navigator.pop(context);
                   },
-                  child: Text("Second page"),
+                  child: Text("Close"),
                 ),
               ),
             ],
