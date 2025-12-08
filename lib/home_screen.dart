@@ -1,3 +1,4 @@
+import 'package:blog/constants/myColors.dart';
 import 'package:blog/gen/assets.gen.dart';
 import 'package:blog/second_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,6 +34,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     image: Assets.images.logo.image().image,
                   ),
                   Row(children: [Icon(Icons.search)]),
+                ],
+              ),
+
+              SizedBox(height: 10),
+              Stack(
+                children: [
+                  Container(
+                    height: size.height / 3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          'https://api.msoltanpour.ca/api/v1/PublicApi/StaticImage/c08fc3eb-9c73-4087-bf02-f30addc42285',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: size.height / 3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      gradient: LinearGradient(
+                        colors: GradiantColors.poster,
+                        begin: AlignmentGeometry.topCenter,
+                        end: AlignmentGeometry.bottomCenter,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
