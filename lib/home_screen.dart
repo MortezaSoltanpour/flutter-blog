@@ -1,7 +1,6 @@
 import 'package:blog/constants/myColors.dart';
 import 'package:blog/gen/assets.gen.dart';
-import 'package:blog/second_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:blog/models/sample_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -109,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 60,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: sampleTags.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -126,9 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Row(
                               children: [
                                 Icon(Icons.tag, color: Colors.white),
-                                SizedBox(width: 5),
+                                SizedBox(width: 6),
                                 Text(
-                                  'Salam man mory hastam',
+                                  sampleTags[index].tag,
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ],
