@@ -50,10 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    height: size.height / 3,
-                    decoration: BoxDecoration(
+                    foregroundDecoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       gradient: LinearGradient(
                         colors: GradiantColors.poster,
