@@ -53,9 +53,53 @@ class _HomeScreenState extends State<HomeScreen> {
                     foregroundDecoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       gradient: LinearGradient(
-                        colors: GradiantColors.poster,
+                        colors: GradiantColors.darkOverlay,
                         begin: AlignmentGeometry.topCenter,
                         end: AlignmentGeometry.bottomCenter,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'This is first blog title',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Author Morteza',
+
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              Text(
+                                'like 232',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),

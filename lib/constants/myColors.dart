@@ -15,4 +15,8 @@ class GradiantColors {
     Color.fromARGB(60, 255, 101, 132),
     Color.fromARGB(200, 245, 29, 72),
   ];
+  static const List<Color> darkOverlay = [
+    Color.fromARGB(90, 0, 0, 0),
+    Color.fromARGB(90, 0, 0, 0),
+  ];
 }
