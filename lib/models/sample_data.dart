@@ -14,3 +14,17 @@ List<SampleTags> sampleTags = [
   SampleTags(tag: 'Java'),
   SampleTags(tag: 'Python'),
 ];
+
+class Blog {
+  String title;
+  String image;
+  int view;
+  String author;
+
+  Blog({
+    required this.title,
+    required this.image,
+    required this.view,
+    required this.author,
+  });
+}
