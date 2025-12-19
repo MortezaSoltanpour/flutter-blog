@@ -1,5 +1,6 @@
 import 'package:blog/constants/myColors.dart';
 import 'package:blog/home_screen.dart';
+import 'package:blog/pages/modals_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavScreen extends StatelessWidget {
@@ -17,24 +18,15 @@ class NavScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
 
             children: [
-              InkWell(
-                splashColor: SolidColors.primaryColor,
+              NavBarItem(
+                screen: screen,
+                title: 'Main page',
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
-                child: Container(
-                  width: screen.width,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Center(
-                    child: const Text(
-                      'Main page',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
               ),
               Divider(
                 thickness: 2,
@@ -42,19 +34,19 @@ class NavScreen extends StatelessWidget {
                 endIndent: 20,
                 indent: 20,
               ),
-              InkWell(
-                splashColor: SolidColors.primaryColor,
+              NavBarItem(
+                screen: screen,
+                title: 'Modals',
                 onTap: () {
-                  print('salam');
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ModalsScreen(),
+                    ),
+                  );
                 },
-                child: Container(
-                  width: screen.width,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Center(
-                    child: const Text('Modals', style: TextStyle(fontSize: 16)),
-                  ),
-                ),
               ),
+
               Divider(
                 thickness: 2,
                 color: SolidColors.deviderColor,
@@ -64,6 +56,38 @@ class NavScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class NavBarItem extends StatelessWidget {
+  const NavBarItem({
+    super.key,
+    required this.screen,
+    required this.title,
+    required this.onTap,
+  });
+
+  final Size screen;
+  final String title;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      splashColor: SolidColors.primaryColor,
+      // onTap: () {
+      //   Navigator.pushReplacement(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const HomeScreen()),
+      //   );
+      // },
+      onTap: onTap,
+      child: Container(
+        width: screen.width,
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Center(child: Text(title, style: TextStyle(fontSize: 16))),
       ),
     );
   }
