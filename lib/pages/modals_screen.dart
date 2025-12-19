@@ -17,6 +17,7 @@ class ModalsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
+                  // Modal bottom sheet
                   ElevatedButton(
                     onPressed: () {
                       print('bottomsheet clicked');
@@ -42,6 +43,7 @@ class ModalsScreen extends StatelessWidget {
 
                   SizedBox(height: 20),
 
+                  // bottom sheet
                   ElevatedButton(
                     onPressed: () {
                       showModalBottomSheet(
@@ -66,6 +68,8 @@ class ModalsScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
+
+                  // Dialog
                   ElevatedButton(
                     onPressed: () {
                       showDialog(
@@ -90,6 +94,34 @@ class ModalsScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () async {
+                      final controller = TextEditingController();
+                      final result = await showDialog<String>(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Enter your name'),
+                          content: TextField(controller: controller),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(context, controller.text),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ),
+                      );
+
+                      if (result != null && result.isNotEmpty) {
+                        print('User input: $result');
+                      }
+                    },
+                    child: const Text('Show input dialog'),
+                  ),
                   SizedBox(height: 20),
                   SizedBox(height: 20),
                   SizedBox(height: 20),
