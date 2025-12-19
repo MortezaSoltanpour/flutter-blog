@@ -1,6 +1,7 @@
 import 'package:blog/constants/myColors.dart';
 import 'package:blog/home_screen.dart';
 import 'package:blog/pages/modals_screen.dart';
+import 'package:blog/pages/toast_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavScreen extends StatelessWidget {
@@ -42,6 +43,25 @@ class NavScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const ModalsScreen(),
+                    ),
+                  );
+                },
+              ),
+
+              Divider(
+                thickness: 2,
+                color: SolidColors.deviderColor,
+                endIndent: 20,
+                indent: 20,
+              ),
+              NavBarItem(
+                screen: screen,
+                title: 'Toasts',
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ToastScreen(),
                     ),
                   );
                 },
