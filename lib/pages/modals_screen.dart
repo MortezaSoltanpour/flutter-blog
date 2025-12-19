@@ -123,6 +123,19 @@ class ModalsScreen extends StatelessWidget {
                     child: const Text('Show input dialog'),
                   ),
                   SizedBox(height: 20),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('This is a Snackbar / Toast'),
+                          duration: Duration(seconds: 2),
+                        ),
+                      );
+                    },
+                    child: const Text('Show Snackbar / Toast'),
+                  ),
+
                   SizedBox(height: 20),
                   SizedBox(height: 20),
                 ],
