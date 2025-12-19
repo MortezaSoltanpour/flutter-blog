@@ -142,32 +142,45 @@ class ModalsScreen extends StatelessWidget {
                       showGeneralDialog(
                         context: context,
                         barrierDismissible: true,
-                        barrierLabel: 'Custom Dialog',
-                        pageBuilder: (context, animation1, animation2) =>
-                            Center(
-                              child: Container(
-                                width: 300,
-                                padding: const EdgeInsets.all(20),
-                                color: Colors.orange,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const Text(
-                                      'Custom Dialog',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    ElevatedButton(
-                                      onPressed: () => Navigator.pop(context),
-                                      child: const Text('Close'),
-                                    ),
-                                  ],
-                                ),
+                        barrierLabel: 'Custom Dialog 2',
+                        pageBuilder: (context, animation1, animation2) => Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
                               ),
+                              color: const Color.fromARGB(255, 255, 222, 172),
                             ),
+                            width: 300,
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Text(
+                                  'Custom Dialog',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: Colors.grey,
+                                  ),
+
+                                  'Culpa labore aliquip minim tempor consequat anim veniam adipisicing consectetur est labore occaecat. Proident esse sunt sunt proident pariatur ad incididunt tempor officia irure id excepteur tempor. Veniam excepteur consectetur exercitation aliquip duis Lorem laboris est enim. Excepteur aute voluptate nostrud enim consequat proident aute.',
+                                ),
+                                const SizedBox(height: 10),
+                                ElevatedButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text('Close'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       );
                     },
                     child: const Text('Show Custom Dialog'),
