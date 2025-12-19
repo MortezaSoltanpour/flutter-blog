@@ -137,6 +137,42 @@ class ModalsScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      showGeneralDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        barrierLabel: 'Custom Dialog',
+                        pageBuilder: (context, animation1, animation2) =>
+                            Center(
+                              child: Container(
+                                width: 300,
+                                padding: const EdgeInsets.all(20),
+                                color: Colors.orange,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text(
+                                      'Custom Dialog',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    ElevatedButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: const Text('Close'),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                      );
+                    },
+                    child: const Text('Show Custom Dialog'),
+                  ),
+
                   SizedBox(height: 20),
                 ],
               ),
