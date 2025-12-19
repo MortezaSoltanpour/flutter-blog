@@ -2,7 +2,7 @@ import 'package:blog/constants/myColors.dart';
 import 'package:blog/gen/assets.gen.dart';
 import 'package:blog/models/model_fake_data.dart';
 import 'package:blog/models/sample_data.dart';
-import 'package:flutter/foundation.dart';
+import 'package:blog/pages/nav.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +29,29 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.menu),
+                  InkWell(
+                    child: Icon(Icons.menu),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const NavScreen(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                                return SlideTransition(
+                                  position: Tween<Offset>(
+                                    begin: const Offset(1.0, 0.0),
+                                    end: Offset.zero,
+                                  ).animate(animation),
+                                  child: child,
+                                );
+                              },
+                        ),
+                      );
+                    },
+                  ),
                   Image(
                     width: size.height / 8.6,
                     image: Assets.images.logo.image().image,

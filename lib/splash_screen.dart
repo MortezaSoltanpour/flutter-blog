@@ -1,9 +1,6 @@
-import 'dart:ui';
-
 import 'package:blog/constants/myColors.dart';
 import 'package:blog/gen/assets.gen.dart';
 import 'package:blog/home_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

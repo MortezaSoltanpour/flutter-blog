@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 class SolidColors {
   static const Color primaryColor = Color.fromARGB(255, 255, 101, 132);
   static const Color secondaryColor = Color.fromARGB(255, 245, 29, 72);
+  static const Color deviderColor = Color.fromARGB(255, 199, 199, 199);
 }
 
 class GradiantColors {
