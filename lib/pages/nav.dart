@@ -1,4 +1,5 @@
 import 'package:blog/constants/myColors.dart';
+import 'package:blog/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavScreen extends StatelessWidget {
@@ -19,7 +20,10 @@ class NavScreen extends StatelessWidget {
               InkWell(
                 splashColor: SolidColors.primaryColor,
                 onTap: () {
-                  print('salam');
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
                 },
                 child: Container(
                   width: screen.width,
