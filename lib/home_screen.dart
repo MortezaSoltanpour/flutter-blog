@@ -114,7 +114,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               Divider(),
-
+              AboutListTile(
+                applicationName: "My App",
+                applicationVersion: "1.0.0",
+                icon: Icon(Icons.info),
+              ),
+              Divider(),
               ListTile(
                 leading: Icon(Icons.logout, color: Colors.red),
                 title: Text("Logout", style: TextStyle(color: Colors.red)),
