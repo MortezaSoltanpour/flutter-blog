@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+final GlobalKey<ScaffoldState> _key = GlobalKey();
+
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController instagramIdController = TextEditingController();
 
@@ -21,8 +23,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(
+        key: _key,
+        endDrawer: Drawer(
           backgroundColor: Colors.white,
+          elevation: 10,
+          semanticLabel: "semantic Label",
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10)),
+          ),
+          clipBehavior: Clip.antiAlias,
+          shadowColor: Colors.red,
           child: Column(
             children: [
               DrawerHeader(
@@ -35,6 +45,48 @@ class _HomeScreenState extends State<HomeScreen> {
                     drawerItem("Home page", Icons.home, () {}),
                     Divider(),
                     drawerItem("Settings", Icons.settings, () {}),
+                    Divider(),
+                    drawerItem("Modal", Icons.ac_unit_outlined, () {}),
+                    Divider(),
+                  ],
+                ),
+              ),
+
+              Divider(),
+
+              ListTile(
+                leading: Icon(Icons.logout, color: Colors.red),
+                title: Text("Logout", style: TextStyle(color: Colors.red)),
+                onTap: () {
+                  print("Logout clicked");
+                },
+              ),
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          elevation: 10,
+          semanticLabel: "semantic Label",
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.horizontal(right: Radius.circular(10)),
+          ),
+          clipBehavior: Clip.antiAlias,
+          shadowColor: Colors.red,
+          child: Column(
+            children: [
+              DrawerHeader(
+                child: Image.asset(Assets.images.logo.path, scale: 2.5),
+              ),
+
+              Expanded(
+                child: ListView(
+                  children: [
+                    drawerItem("Home page", Icons.home, () {}),
+                    Divider(),
+                    drawerItem("Settings", Icons.settings, () {}),
+                    Divider(),
+                    drawerItem("Modal", Icons.ac_unit_outlined, () {}),
                     Divider(),
                   ],
                 ),
@@ -64,6 +116,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(
                     child: Icon(Icons.menu),
                     onTap: () {
+                      _key.currentState!.openDrawer();
+                    },
+                  ),
+                  Image(
+                    width: size.height / 8.6,
+                    image: Assets.images.logo.image().image,
+                  ),
+                  InkWell(
+                    child: Icon(Icons.zoom_in),
+                    onTap: () {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
@@ -84,11 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
-                  Image(
-                    width: size.height / 8.6,
-                    image: Assets.images.logo.image().image,
-                  ),
-                  Row(children: [Icon(Icons.search)]),
                 ],
               ),
 
