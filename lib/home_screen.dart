@@ -21,6 +21,38 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          child: Column(
+            children: [
+              DrawerHeader(
+                child: Image.asset(Assets.images.logo.path, scale: 2.5),
+              ),
+
+              Expanded(
+                child: ListView(
+                  children: [
+                    drawerItem("Home page", Icons.home, () {}),
+                    Divider(),
+                    drawerItem("Settings", Icons.settings, () {}),
+                    Divider(),
+                  ],
+                ),
+              ),
+
+              Divider(),
+
+              ListTile(
+                leading: Icon(Icons.logout, color: Colors.red),
+                title: Text("Logout", style: TextStyle(color: Colors.red)),
+                onTap: () {
+                  print("Logout clicked");
+                },
+              ),
+            ],
+          ),
+        ),
+
         body: Padding(
           padding: EdgeInsetsGeometry.fromLTRB(10, 10, 10, 0),
 
@@ -255,4 +287,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
+
+Widget drawerItem(String title, IconData icon, VoidCallback onTap) {
+  return ListTile(leading: Icon(icon), title: Text(title), onTap: onTap);
 }
