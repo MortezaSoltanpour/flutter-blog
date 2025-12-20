@@ -75,8 +75,29 @@ class _HomeScreenState extends State<HomeScreen> {
           shadowColor: Colors.red,
           child: Column(
             children: [
-              DrawerHeader(
-                child: Image.asset(Assets.images.logo.path, scale: 2.5),
+              UserAccountsDrawerHeader(
+                accountName: Text("Morteza"),
+                accountEmail: Text("morteza@email.com"),
+
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    'https://api.msoltanpour.ca/api/v1/PublicApi/StaticImage/734bb66f-4e73-459b-b7c4-e39f61ca2ee3',
+                  ),
+                ),
+                otherAccountsPictures: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      'https://avatars.githubusercontent.com/u/25399858?v=4',
+                    ),
+                  ),
+                  CircleAvatar(child: Text("MS")),
+                ],
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.indigo],
+                  ),
+                ),
+                arrowColor: Colors.white,
               ),
 
               Expanded(
